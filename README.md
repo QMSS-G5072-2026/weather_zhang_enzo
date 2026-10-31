@@ -1,5 +1,7 @@
 # weather_ez2465
 
+![ci](https://github.com/QMSS-G5072-2026/weather_zhang_enzo/actions/workflows/ci.yml/badge.svg)
+
 Weather station utilities: temperature conversion, summaries and cleaning of station readings.
 
 ## Installation
@@ -21,7 +23,20 @@ $ uv build                      # build the sdist and wheel into dist/
 
 ## Usage
 
-- TODO
+```python
+import pandas as pd
+import weather_ez2465
+
+weather_ez2465.celsius_to_fahrenheit(100)                          # 212.0
+weather_ez2465.summarize_temperatures([10.0, float("nan"), 20.0])  # mean, min, max, n_missing
+
+raw = pd.DataFrame({
+    "station": ["JFK", "CPK", "JFK"],
+    "date": ["2026-07-02", "2026-07-01", "2026-07-01"],
+    "temp_c": [30.0, 25.0, float("nan")],
+})
+weather_ez2465.clean_readings(raw)   # drops missing and implausible readings, adds temp_f, sorts
+```
 
 ## Contributing
 
