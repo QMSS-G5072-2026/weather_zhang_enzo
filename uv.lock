@@ -1912,7 +1912,7 @@ wheels = [
 
 [[package]]
 name = "weather-ez2465"
-version = "0.1.0"
+version = "0.1.1"
 source = { editable = "." }
 default-groups = ["dev", "docs"]
 dependencies = [
